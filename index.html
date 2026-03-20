@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Headlock Fix Final</title>
+<title>Headlock Final Pro</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -20,44 +20,60 @@
     box-sizing:border-box;
 }
 
-/* CHẶN TRÀN NGANG TUYỆT ĐỐI */
+/* FIX TRÀN */
 html,body{
     width:100%;
-    max-width:100%;
     overflow-x:hidden;
-    height:100%;
     font-family:'Poppins',sans-serif;
 }
 
 /* BODY */
 body{
+    height:100vh;
     background: radial-gradient(circle at top,#0b1a2b,#050b14);
     display:flex;
     justify-content:center;
     align-items:center;
+    color:white;
 }
 
-/* BACKGROUND FIX */
+/* BACKGROUND EFFECT */
 .bg{
     position:fixed;
     inset:0;
-    background-image: radial-gradient(#00bfff22 2px, transparent 2px);
-    background-size:70px 70px;
+    overflow:hidden;
     z-index:0;
 }
 
-/* WRAPPER CENTER CHUẨN */
-.wrapper{
-    width:100%;
-    display:flex;
-    justify-content:center;
+/* layer chấm */
+.bg::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background-image: radial-gradient(#00bfff33 2px, transparent 2px);
+    background-size:60px 60px;
+    animation: moveBg 25s linear infinite;
+}
+
+/* layer glow */
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at center, transparent 60%, #000 100%);
+}
+
+/* animation mượt không lệch */
+@keyframes moveBg{
+    from{ transform: translate(0,0); }
+    to{ transform: translate(-150px,-150px); }
 }
 
 /* CONTAINER */
 .container{
     width:100%;
     max-width:360px;
-    margin:auto;
     text-align:center;
     position:relative;
     z-index:1;
@@ -128,6 +144,7 @@ button{
     background:linear-gradient(90deg,#1e90ff,#4facfe);
     color:white;
     font-weight:600;
+    box-shadow:0 0 15px var(--main);
 }
 
 /* TEXT */
@@ -158,8 +175,6 @@ button{
 
 <div class="bg"></div>
 
-<div class="wrapper">
-
 <div class="container">
 
     <div class="avatar">
@@ -187,8 +202,6 @@ button{
     <div class="footer">
         © 2025 HEADLOCK <br> All rights reserved
     </div>
-
-</div>
 
 </div>
 
