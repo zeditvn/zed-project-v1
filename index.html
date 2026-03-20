@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <title>Headlock Pro Fix</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
 :root{--main:#1e90ff;}
@@ -22,7 +23,6 @@ body{background:#050b14;}
     position:fixed;
     inset:0;
     z-index:0;
-    overflow:hidden;
 }
 .bg::before{
     content:"";
@@ -61,18 +61,28 @@ body{background:#050b14;}
 
 /* TEXT */
 .title{
-    margin-top:18px;font-size:28px;font-weight:700;
-    color:var(--main);text-shadow:0 0 15px var(--main);
+    margin-top:18px;
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:var(--main);
+    text-shadow:0 0 20px var(--main);
 }
-.subtitle{margin:10px 0 25px;color:#aaa;}
+.subtitle{
+    margin:10px 0 25px;
+    color:#aaa;
+    font-weight:500;
+}
 
 /* BOX */
 .box{
-    border:2px solid var(--main);border-radius:20px;
-    padding:18px;box-shadow:0 0 20px #1e90ff55;
+    border:2px solid var(--main);
+    border-radius:20px;
+    padding:18px;
+    box-shadow:0 0 20px #1e90ff55;
 }
 
-/* ===== INPUT FLOAT LABEL ===== */
+/* INPUT FLOAT */
 .input-box{
     position:relative;
     border:2px solid var(--main);
@@ -80,8 +90,6 @@ body{background:#050b14;}
     padding:16px 12px 10px;
     margin-bottom:20px;
 }
-
-/* input */
 .input-box input{
     width:100%;
     background:none;
@@ -90,8 +98,6 @@ body{background:#050b14;}
     color:white;
     font-size:15px;
 }
-
-/* label */
 .input-box label{
     position:absolute;
     left:12px;
@@ -99,13 +105,10 @@ body{background:#050b14;}
     transform:translateY(-50%);
     color:#aaa;
     font-size:14px;
-    pointer-events:none;
-    transition:0.25s ease;
+    transition:0.25s;
     background:#050b14;
     padding:0 6px;
 }
-
-/* khi focus hoặc có chữ */
 .input-box input:focus + label,
 .input-box input:not(:placeholder-shown) + label{
     top:-8px;
@@ -113,24 +116,52 @@ body{background:#050b14;}
     color:var(--main);
 }
 
-/* BUTTON */
+/* ===== BUTTON XỊN ===== */
 button{
     width:100%;
-    padding:14px;
-    border-radius:15px;
+    padding:16px;
+    border-radius:18px;
     border:none;
     background:linear-gradient(90deg,#1e90ff,#4facfe);
     color:white;
-    font-weight:600;
-    box-shadow:0 0 15px var(--main);
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:1px;
+    box-shadow:0 0 20px #1e90ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
 }
-button:active{transform:scale(0.96);}
+
+/* ICON BUTTON */
+button i{
+    font-size:18px;
+}
+
+/* CLICK */
+button:active{
+    transform:scale(0.96);
+}
 
 /* TEXT */
-.forgot{margin-top:15px;color:var(--main);}
-.features{margin-top:25px;text-align:left;color:#aaa;font-size:14px;}
+.forgot{
+    margin-top:15px;
+    color:var(--main);
+    font-weight:500;
+}
+.features{
+    margin-top:25px;
+    text-align:left;
+    color:#aaa;
+    font-size:14px;
+}
 .features div{margin:8px 0;}
-.footer{margin-top:20px;font-size:12px;color:#555;}
+.footer{
+    margin-top:20px;
+    font-size:12px;
+    color:#555;
+}
 </style>
 </head>
 
@@ -148,13 +179,17 @@ button:active{transform:scale(0.96);}
 
     <div class="box">
 
-        <!-- INPUT FLOAT -->
         <div class="input-box">
             <input type="text" required placeholder=" ">
             <label>Nhập Key</label>
         </div>
 
-        <button onclick="login()">ĐĂNG NHẬP</button>
+        <!-- BUTTON CÓ ICON -->
+        <button onclick="login()">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            ĐĂNG NHẬP
+        </button>
+
         <div class="forgot">Quên key?</div>
     </div>
 
