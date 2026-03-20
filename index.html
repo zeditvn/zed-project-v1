@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <title>Headlock Pro Fix</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- ICON -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 <style>
 :root{--main:#1e90ff;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -17,7 +21,7 @@ body{
     background:#050b14;
 }
 
-/* BACKGROUND NỀN EFFECT */
+/* BACKGROUND */
 .bg{
     position:fixed;
     inset:0;
@@ -38,7 +42,7 @@ body{
     to{transform: translate(-150px,-150px);}
 }
 
-/* WRAPPER CENTER TUYỆT ĐỐI */
+/* WRAPPER */
 .wrapper{
     position:fixed;
     top:50%;left:50%;
@@ -71,6 +75,7 @@ body{
     border:2px solid var(--main);border-radius:20px;
     padding:18px;box-shadow:0 0 20px #1e90ff55;
 }
+
 /* INPUT */
 .input-box{border:2px solid var(--main);border-radius:15px;padding:12px;margin-bottom:20px;}
 .input-box input{width:100%;background:none;border:none;outline:none;color:white;}
@@ -85,9 +90,59 @@ button:active{transform:scale(0.96);}
 .features{margin-top:25px;text-align:left;color:#aaa;font-size:14px;}
 .features div{margin:8px 0;}
 .footer{margin-top:20px;font-size:12px;color:#555;}
+
+/* ====== THANH NỔI (BOTTOM NAV) ====== */
+.bottom-nav{
+    position:fixed;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    max-width:420px;
+    background:#ffffff;
+    border-radius:25px;
+    padding:12px 10px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+    z-index:999;
+}
+
+/* ITEM */
+.nav-item{
+    text-align:center;
+    font-size:11px;
+    color:#555;
+    flex:1;
+}
+
+.nav-item i{
+    font-size:18px;
+    display:block;
+    margin-bottom:4px;
+}
+
+/* ACTIVE */
+.nav-item.active{
+    color:#1e90ff;
+}
+
+/* ICON STYLE */
+.nav-item i{
+    background:#eee;
+    padding:8px;
+    border-radius:10px;
+}
+
+.nav-item.active i{
+    background:#1e90ff;
+    color:#fff;
+}
 </style>
 </head>
 <body>
+
 <div class="bg"></div>
 
 <div class="wrapper">
@@ -116,6 +171,30 @@ button:active{transform:scale(0.96);}
     </div>
 </div>
 
+<!-- ===== THANH NỔI ===== -->
+<div class="bottom-nav">
+    <div class="nav-item active">
+        <i class="fa-solid fa-house"></i>
+        TRANG CHỦ
+    </div>
+    <div class="nav-item">
+        <i class="fa-solid fa-th-large"></i>
+        DANH MỤC
+    </div>
+    <div class="nav-item">
+        <i class="fa-solid fa-dollar-sign"></i>
+        NẠP TIỀN
+    </div>
+    <div class="nav-item">
+        <i class="fa-solid fa-clock"></i>
+        LỊCH SỬ
+    </div>
+    <div class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        TÀI KHOẢN
+    </div>
+</div>
+
 <script>
 function login(){
     let key=document.querySelector("input").value.trim();
@@ -123,12 +202,13 @@ function login(){
     if(key==="123456"){alert("OK 😎");}else{alert("Sai key!");}
 }
 
-/* CHẶN MỌI SCROLL VÀ ZOOM */
+/* CHẶN SCROLL */
 document.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
 document.addEventListener('wheel',e=>e.preventDefault(),{passive:false});
 document.addEventListener('gesturestart',e=>e.preventDefault());
 document.addEventListener('gesturechange',e=>e.preventDefault());
 document.addEventListener('gestureend',e=>e.preventDefault());
 </script>
+
 </body>
 </html>
