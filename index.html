@@ -3,11 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Headlock Login</title>
+<title>Headlock Pro</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root {
+    --main: #1e90ff;
+}
+
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -15,46 +20,50 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* BODY */
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: radial-gradient(circle at top, #0b1a2b, #050b14);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
     overflow: hidden;
     color: white;
 }
 
-/* Animated dots background */
+/* Background animation */
 body::before {
     content: "";
     position: absolute;
-    width: 200%;
-    height: 200%;
-    background-image: radial-gradient(#00bfff33 2px, transparent 2px);
-    background-size: 80px 80px;
-    animation: moveBg 20s linear infinite;
+    width: 300%;
+    height: 300%;
+    background-image: radial-gradient(#00bfff22 2px, transparent 2px);
+    background-size: 70px 70px;
+    animation: moveBg 25s linear infinite;
 }
 
 @keyframes moveBg {
     0% { transform: translate(0,0); }
-    100% { transform: translate(-200px,-200px); }
+    100% { transform: translate(-300px,-300px); }
 }
 
+/* CONTAINER */
 .container {
-    width: 350px;
+    width: 100%;
+    max-width: 380px;
     text-align: center;
     z-index: 2;
 }
 
-/* Avatar */
+/* AVATAR */
 .avatar {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 4px solid #1e90ff;
-    box-shadow: 0 0 20px #1e90ff;
+    width: clamp(90px, 25vw, 130px);
+    height: clamp(90px, 25vw, 130px);
     margin: auto;
+    border-radius: 50%;
+    border: 3px solid var(--main);
+    box-shadow: 0 0 25px var(--main);
     overflow: hidden;
 }
 
@@ -64,36 +73,37 @@ body::before {
     object-fit: cover;
 }
 
-/* Title */
+/* TITLE */
 .title {
     margin-top: 20px;
-    font-size: 32px;
+    font-size: clamp(22px, 5vw, 32px);
     font-weight: 700;
-    color: #1e90ff;
-    text-shadow: 0 0 15px #1e90ff;
+    color: var(--main);
+    text-shadow: 0 0 15px var(--main);
 }
 
 .subtitle {
-    margin: 10px 0 30px;
+    margin: 10px 0 25px;
     color: #aaa;
+    font-size: clamp(13px, 3vw, 15px);
 }
 
-/* Box */
+/* BOX */
 .box {
-    border: 2px solid #1e90ff;
+    border: 2px solid var(--main);
     border-radius: 20px;
-    padding: 25px;
+    padding: clamp(18px, 4vw, 25px);
     box-shadow: 0 0 20px #1e90ff55;
 }
 
-/* Input */
+/* INPUT */
 .input-box {
-    border: 2px solid #1e90ff;
+    border: 2px solid var(--main);
     border-radius: 15px;
     padding: 12px;
-    margin-bottom: 20px;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .input-box input {
@@ -103,40 +113,41 @@ body::before {
     color: white;
     width: 100%;
     padding-left: 10px;
-    font-size: 16px;
+    font-size: clamp(14px, 3.5vw, 16px);
 }
 
-/* Button */
+/* BUTTON */
 button {
     width: 100%;
-    padding: 15px;
+    padding: clamp(12px, 3.5vw, 15px);
     border-radius: 15px;
     border: none;
     background: linear-gradient(90deg, #1e90ff, #4facfe);
     color: white;
     font-weight: 600;
-    font-size: 18px;
+    font-size: clamp(14px, 4vw, 18px);
     cursor: pointer;
-    box-shadow: 0 0 15px #1e90ff;
+    box-shadow: 0 0 15px var(--main);
     transition: 0.3s;
 }
 
 button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px #1e90ff;
+    box-shadow: 0 0 30px var(--main);
 }
 
+/* FORGOT */
 .forgot {
     margin-top: 15px;
-    color: #1e90ff;
-    cursor: pointer;
+    color: var(--main);
+    font-size: clamp(13px, 3vw, 14px);
 }
 
-/* Footer list */
+/* FEATURES */
 .features {
     margin-top: 25px;
     text-align: left;
-    font-size: 14px;
+    font-size: clamp(12px, 3vw, 14px);
     color: #aaa;
 }
 
@@ -144,13 +155,14 @@ button:hover {
     margin: 8px 0;
 }
 
+/* FOOTER */
 .footer {
     margin-top: 20px;
-    font-size: 12px;
+    font-size: clamp(11px, 2.5vw, 12px);
     color: #555;
 }
 
-/* Floating dots */
+/* FLOAT DOT */
 .dot {
     position: absolute;
     width: 6px;
@@ -200,24 +212,22 @@ button:hover {
 
 </div>
 
-<!-- Floating dots -->
 <div class="dot" style="top:20%;left:10%;"></div>
-<div class="dot" style="top:60%;left:80%;"></div>
+<div class="dot" style="top:70%;left:85%;"></div>
 
 <script>
 function login(){
-    const key = document.querySelector("input").value;
+    let key = document.querySelector("input").value.trim();
 
-    if(key === ""){
-        alert("Vui lòng nhập key!");
+    if(!key){
+        alert("Nhập key đi bro!");
         return;
     }
 
-    // demo fake check
     if(key === "123456"){
-        alert("Đăng nhập thành công!");
+        alert("OK VIP 😎");
     } else {
-        alert("Key không đúng!");
+        alert("Sai key!");
     }
 }
 </script>
