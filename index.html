@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-<title>Headlock Pro</title>
+<title>Headlock Pro Fix</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -11,22 +11,29 @@
 <style>
 :root{--main:#1e90ff;}
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-serif;}
+html,body{
+    width:100%;height:100%;overflow:hidden;
+    font-family:'Poppins',sans-serif;
+}
 body{background:#050b14;}
 
 /* BACKGROUND */
-.bg{position:fixed;inset:0;}
+.bg{
+    position:fixed;
+    inset:0;
+}
 .bg::before{
     content:"";
     position:absolute;
-    width:200%;height:200%;
+    width:200%;
+    height:200%;
     background-image: radial-gradient(#00bfff33 2px, transparent 2px);
     background-size:60px 60px;
     animation: moveBg 25s linear infinite;
 }
 @keyframes moveBg{
-    from{transform:translate(0,0);}
-    to{transform:translate(-150px,-150px);}
+    from{transform: translate(0,0);}
+    to{transform: translate(-150px,-150px);}
 }
 
 /* WRAPPER */
@@ -66,7 +73,7 @@ body{background:#050b14;}
     box-shadow:0 0 20px #1e90ff55;
 }
 
-/* INPUT FLOAT */
+/* ===== INPUT FLOAT FIX ===== */
 .input-box{
     position:relative;
     border:2px solid var(--main);
@@ -74,6 +81,7 @@ body{background:#050b14;}
     padding:12px;
     margin-bottom:20px;
 }
+
 .input-box input{
     width:100%;
     background:none;
@@ -82,6 +90,8 @@ body{background:#050b14;}
     color:white;
     font-size:14px;
 }
+
+/* LABEL FIX */
 .input-box label{
     position:absolute;
     left:14px;
@@ -93,6 +103,8 @@ body{background:#050b14;}
     padding:0 4px;
     background:transparent;
 }
+
+/* FLOAT */
 .input-box input:focus + label,
 .input-box input:not(:placeholder-shown) + label{
     top:-8px;
@@ -124,7 +136,7 @@ button:active{transform:scale(0.96);}
 .features div{margin:8px 0;}
 .footer{margin-top:20px;font-size:12px;color:#555;}
 
-/* LOGIN POPUP */
+/* ===== POPUP FULL WIDTH FORM ===== */
 .overlay{
     position:fixed;
     inset:0;
@@ -135,6 +147,7 @@ button:active{transform:scale(0.96);}
     transition:0.3s;
     z-index:999;
 }
+
 .popup{
     position:fixed;
     left:50%;
@@ -149,9 +162,12 @@ button:active{transform:scale(0.96);}
     padding:20px;
     transition:0.35s;
     z-index:1000;
+    box-shadow:0 0 20px #1e90ff55;
 }
+
 .overlay.show{opacity:1;pointer-events:auto;}
 .popup.show{bottom:15px;}
+
 .popup .icon{
     width:50px;height:50px;margin:auto;
     border-radius:50%;
@@ -160,66 +176,15 @@ button:active{transform:scale(0.96);}
     font-size:22px;color:#000;
 }
 
-/* KEY POPUP */
-.key-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(6px);
-    z-index:2000;
-}
-.key-popup{
-    position:fixed;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:90%;
-    max-width:380px;
-    background:#0b1320;
-    border-radius:25px;
-    border:2px solid #1e90ff;
-    padding:20px;
-    z-index:2001;
-    text-align:center;
-}
-.key-title{color:#1e90ff;font-weight:700;}
-.key-sub{color:#fff;font-size:20px;font-weight:700;}
-.key-desc{color:#aaa;font-size:13px;margin:10px 0;}
-.step{
-    background:#0f1b2d;
-    border-radius:15px;
-    padding:10px;
-    margin:8px 0;
-    text-align:left;
-    color:#ddd;
-    font-size:13px;
-}
-.step span{
-    background:#1e90ff;
-    color:#000;
-    border-radius:50%;
-    padding:4px 8px;
-    margin-right:8px;
-}
-.link-box{display:flex;gap:8px;margin-top:15px;}
-.link-box input{
-    flex:1;
-    background:#0f1b2d;
-    border:none;
-    border-radius:10px;
+.popup h2{
+    margin-top:10px;
+    font-size:16px;
     color:#fff;
-    padding:10px;
 }
-.link-box button{
-    background:#1e90ff;
-    border:none;
-    border-radius:10px;
-    padding:10px;
-    color:#000;
+.popup p{
+    font-size:13px;
+    color:#aaa;
 }
-.actions{display:flex;gap:10px;margin-top:15px;}
-.close-btn{flex:1;background:#222;color:#aaa;border:none;padding:12px;border-radius:12px;}
-.open-btn{flex:1;background:#1e90ff;color:#000;border:none;padding:12px;border-radius:12px;}
 </style>
 </head>
 
@@ -236,6 +201,8 @@ button:active{transform:scale(0.96);}
     <div class="subtitle">Nhập key để tiếp tục</div>
 
     <div class="box">
+
+        <!-- INPUT FLOAT -->
         <div class="input-box">
             <input id="key" type="text" placeholder=" " required>
             <label>Nhập Key</label>
@@ -255,10 +222,12 @@ button:active{transform:scale(0.96);}
         <div>✔ Hỗ trợ 24/7</div>
     </div>
 
-    <div class="footer">© 2025 HEADLOCK</div>
+    <div class="footer">
+        © 2025 HEADLOCK <br> All rights reserved
+    </div>
 </div>
 
-<!-- LOGIN POPUP -->
+<!-- POPUP -->
 <div class="overlay" onclick="closePopup()"></div>
 <div class="popup" id="popup">
     <div class="icon" id="icon">!</div>
@@ -266,56 +235,14 @@ button:active{transform:scale(0.96);}
     <p id="p-msg"></p>
 </div>
 
-<!-- KEY POPUP -->
-<div class="key-overlay" id="keyOverlay"></div>
-<div class="key-popup" id="keyPopup">
-    <div class="key-title">FREE KEY VIP</div>
-    <div class="key-sub">Nhận Key Miễn Phí!</div>
-    <div class="key-desc">Làm theo 3 bước để lấy key</div>
-
-    <div class="step"><span>1</span>Sao chép link</div>
-    <div class="step"><span>2</span>Vượt link</div>
-    <div class="step"><span>3</span>Nhận key</div>
-
-    <div class="link-box">
-        <input id="keyLink" value="https://link4m.com/qfsKUN">
-        <button onclick="copyLink()">COPY</button>
-    </div>
-
-    <div class="actions">
-        <button class="close-btn" onclick="closeKeyPopup()">Đóng</button>
-        <button class="open-btn" onclick="openLink()">Mở link</button>
-    </div>
-</div>
-
 <script>
-window.onload=()=>{
-    document.getElementById("keyPopup").style.display="block";
-    document.getElementById("keyOverlay").style.display="block";
-}
-
-function closeKeyPopup(){
-    keyPopup.style.display="none";
-    keyOverlay.style.display="none";
-}
-
-function copyLink(){
-    let input=document.getElementById("keyLink");
-    input.select();
-    document.execCommand("copy");
-    alert("Đã copy!");
-}
-
-function openLink(){
-    window.open(document.getElementById("keyLink").value,"_blank");
-}
-
-function showPopup(t,m,ok=true){
+function showPopup(title,msg,ok=true){
     document.querySelector(".overlay").classList.add("show");
     document.getElementById("popup").classList.add("show");
-    document.getElementById("p-title").innerText=t;
-    document.getElementById("p-msg").innerText=m;
-    document.getElementById("icon").innerHTML= ok?"✔":"!";
+
+    document.getElementById("p-title").innerText=title;
+    document.getElementById("p-msg").innerText=msg;
+    document.getElementById("icon").innerHTML = ok ? "✔" : "!";
 }
 
 function closePopup(){
@@ -325,9 +252,17 @@ function closePopup(){
 
 function login(){
     let key=document.getElementById("key").value.trim();
-    if(!key){showPopup("Thiếu key","Bạn chưa nhập key.",false);return;}
-    if(key==="123456"){showPopup("OK","Đăng nhập thành công",true);}
-    else{showPopup("Sai key","Không đúng!",false);}
+
+    if(!key){
+        showPopup("Thiếu key","Bạn chưa nhập key.",false);
+        return;
+    }
+
+    if(key==="123456"){
+        showPopup("Thành công","OK 😎",true);
+    }else{
+        showPopup("Sai key","Key không đúng!",false);
+    }
 }
 </script>
 
