@@ -2,9 +2,9 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 
-<title>Headlock Fixed</title>
+<title>Headlock App</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -20,27 +20,22 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* BODY */
-body {
+/* KHÓA SCROLL */
+html, body {
     height: 100%;
-    background: radial-gradient(circle at top, #0b1a2b, #050b14);
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
+    touch-action: none;
 }
 
-/* FIX CENTER ABSOLUTE */
-.wrapper {
-    min-height: 100dvh;
+/* FULL SCREEN */
+body {
+    background: radial-gradient(circle at top, #0b1a2b, #050b14);
     display: grid;
     place-items: center;
-    padding:
-        calc(env(safe-area-inset-top) + 20px)
-        calc(env(safe-area-inset-right) + 20px)
-        calc(env(safe-area-inset-bottom) + 20px)
-        calc(env(safe-area-inset-left) + 20px);
+    color: white;
 }
 
-/* BACKGROUND đứng yên */
+/* BACKGROUND */
 .bg {
     position: fixed;
     inset: 0;
@@ -51,17 +46,16 @@ body {
 
 /* CONTAINER */
 .container {
-    width: 100%;
-    max-width: 380px;
+    width: 90%;
+    max-width: 360px;
     text-align: center;
-    position: relative;
     z-index: 1;
 }
 
 /* AVATAR */
 .avatar {
-    width: clamp(90px, 25vw, 130px);
-    height: clamp(90px, 25vw, 130px);
+    width: 120px;
+    height: 120px;
     margin: auto;
     border-radius: 50%;
     border: 3px solid var(--main);
@@ -75,10 +69,10 @@ body {
     object-fit: cover;
 }
 
-/* TEXT */
+/* TITLE */
 .title {
     margin-top: 20px;
-    font-size: clamp(22px, 5vw, 32px);
+    font-size: 30px;
     font-weight: 700;
     color: var(--main);
     text-shadow: 0 0 15px var(--main);
@@ -123,10 +117,11 @@ button {
     color: white;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 0 15px var(--main);
 }
 
 button:active {
-    transform: scale(0.97);
+    transform: scale(0.96);
 }
 
 /* TEXT */
@@ -139,6 +134,7 @@ button:active {
     margin-top: 25px;
     text-align: left;
     color: #aaa;
+    font-size: 14px;
 }
 
 .features div {
@@ -156,8 +152,6 @@ button:active {
 <body>
 
 <div class="bg"></div>
-
-<div class="wrapper">
 
 <div class="container">
 
@@ -189,8 +183,6 @@ button:active {
 
 </div>
 
-</div>
-
 <script>
 function login(){
     const key = document.querySelector("input").value.trim();
@@ -206,6 +198,10 @@ function login(){
         alert("Sai key!");
     }
 }
+
+/* CHẶN SCROLL MỌI KIỂU */
+document.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+document.addEventListener('wheel', e => e.preventDefault(), { passive: false });
 </script>
 
 </body>
