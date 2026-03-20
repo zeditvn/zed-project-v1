@@ -2,50 +2,28 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-<title>Headlock Final Pro</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<title>Headlock Pro Fix</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root{
-    --main:#1e90ff;
-}
-
-/* RESET */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-/* FIX TRÀN */
+:root{--main:#1e90ff;}
+*{margin:0;padding:0;box-sizing:border-box;}
 html,body{
-    width:100%;
-    overflow-x:hidden;
+    width:100%;height:100%;overflow:hidden;
     font-family:'Poppins',sans-serif;
+    touch-action:none;
 }
-
-/* BODY */
 body{
-    height:100vh;
-    background: radial-gradient(circle at top,#0b1a2b,#050b14);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
+    background:#050b14;
 }
 
-/* BACKGROUND EFFECT */
+/* BACKGROUND NỀN EFFECT */
 .bg{
     position:fixed;
     inset:0;
-    overflow:hidden;
     z-index:0;
+    overflow:hidden;
 }
-
-/* layer chấm */
 .bg::before{
     content:"";
     position:absolute;
@@ -55,132 +33,67 @@ body{
     background-size:60px 60px;
     animation: moveBg 25s linear infinite;
 }
-
-/* layer glow */
-.bg::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: radial-gradient(circle at center, transparent 60%, #000 100%);
-}
-
-/* animation mượt không lệch */
 @keyframes moveBg{
-    from{ transform: translate(0,0); }
-    to{ transform: translate(-150px,-150px); }
+    from{transform: translate(0,0);}
+    to{transform: translate(-150px,-150px);}
 }
 
-/* CONTAINER */
-.container{
+/* WRAPPER CENTER TUYỆT ĐỐI */
+.wrapper{
+    position:fixed;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
     width:100%;
-    max-width:360px;
+    max-width:380px;
     text-align:center;
-    position:relative;
     z-index:1;
     padding:20px;
 }
 
 /* AVATAR */
 .avatar{
-    width:110px;
-    height:110px;
-    margin:auto;
-    border-radius:50%;
-    border:3px solid var(--main);
+    width:110px;height:110px;margin:auto;
+    border-radius:50%;border:3px solid var(--main);
     box-shadow:0 0 25px var(--main);
     overflow:hidden;
 }
-
-.avatar img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
+.avatar img{width:100%;height:100%;object-fit:cover;}
 
 /* TEXT */
 .title{
-    margin-top:18px;
-    font-size:28px;
-    font-weight:700;
-    color:var(--main);
-    text-shadow:0 0 15px var(--main);
+    margin-top:18px;font-size:28px;font-weight:700;
+    color:var(--main);text-shadow:0 0 15px var(--main);
 }
-
-.subtitle{
-    margin:10px 0 25px;
-    color:#aaa;
-}
+.subtitle{margin:10px 0 25px;color:#aaa;}
 
 /* BOX */
 .box{
-    border:2px solid var(--main);
-    border-radius:20px;
-    padding:18px;
-    box-shadow:0 0 20px #1e90ff55;
+    border:2px solid var(--main);border-radius:20px;
+    padding:18px;box-shadow:0 0 20px #1e90ff55;
 }
-
 /* INPUT */
-.input-box{
-    border:2px solid var(--main);
-    border-radius:15px;
-    padding:12px;
-    margin-bottom:20px;
-}
-
-.input-box input{
-    width:100%;
-    background:none;
-    border:none;
-    outline:none;
-    color:white;
-}
+.input-box{border:2px solid var(--main);border-radius:15px;padding:12px;margin-bottom:20px;}
+.input-box input{width:100%;background:none;border:none;outline:none;color:white;}
 
 /* BUTTON */
-button{
-    width:100%;
-    padding:14px;
-    border-radius:15px;
-    border:none;
-    background:linear-gradient(90deg,#1e90ff,#4facfe);
-    color:white;
-    font-weight:600;
-    box-shadow:0 0 15px var(--main);
-}
+button{width:100%;padding:14px;border-radius:15px;border:none;
+    background:linear-gradient(90deg,#1e90ff,#4facfe);color:white;font-weight:600;box-shadow:0 0 15px var(--main);}
+button:active{transform:scale(0.96);}
 
 /* TEXT */
-.forgot{
-    margin-top:15px;
-    color:var(--main);
-}
-
-.features{
-    margin-top:25px;
-    text-align:left;
-    color:#aaa;
-}
-
-.features div{
-    margin:8px 0;
-}
-
-.footer{
-    margin-top:20px;
-    font-size:12px;
-    color:#555;
-}
+.forgot{margin-top:15px;color:var(--main);}
+.features{margin-top:25px;text-align:left;color:#aaa;font-size:14px;}
+.features div{margin:8px 0;}
+.footer{margin-top:20px;font-size:12px;color:#555;}
 </style>
 </head>
-
 <body>
-
 <div class="bg"></div>
 
-<div class="container">
-
+<div class="wrapper">
     <div class="avatar">
         <img src="https://i.imgur.com/2yaf2wb.png">
     </div>
-
     <div class="title">HEADLOCK</div>
     <div class="subtitle">Nhập key để tiếp tục</div>
 
@@ -188,7 +101,6 @@ button{
         <div class="input-box">
             <input type="text" placeholder="Nhập Key">
         </div>
-
         <button onclick="login()">ĐĂNG NHẬP</button>
         <div class="forgot">Quên key?</div>
     </div>
@@ -202,23 +114,21 @@ button{
     <div class="footer">
         © 2025 HEADLOCK <br> All rights reserved
     </div>
-
 </div>
 
 <script>
 function login(){
     let key=document.querySelector("input").value.trim();
-    if(!key){
-        alert("Nhập key!");
-        return;
-    }
-    if(key==="123456"){
-        alert("OK 😎");
-    }else{
-        alert("Sai key!");
-    }
+    if(!key){alert("Nhập key!");return;}
+    if(key==="123456"){alert("OK 😎");}else{alert("Sai key!");}
 }
-</script>
 
+/* CHẶN MỌI SCROLL VÀ ZOOM */
+document.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
+document.addEventListener('wheel',e=>e.preventDefault(),{passive:false});
+document.addEventListener('gesturestart',e=>e.preventDefault());
+document.addEventListener('gesturechange',e=>e.preventDefault());
+document.addEventListener('gestureend',e=>e.preventDefault());
+</script>
 </body>
 </html>
