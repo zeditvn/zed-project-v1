@@ -2,149 +2,154 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Headlock App</title>
+<title>Headlock Fix Final</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --main: #1e90ff;
+:root{
+    --main:#1e90ff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* KHÓA SCROLL */
-html, body {
-    height: 100%;
-    overflow: hidden;
-    touch-action: none;
+/* CHẶN TRÀN NGANG TUYỆT ĐỐI */
+html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+    height:100%;
+    font-family:'Poppins',sans-serif;
 }
 
-/* FULL SCREEN */
-body {
-    background: radial-gradient(circle at top, #0b1a2b, #050b14);
-    display: grid;
-    place-items: center;
-    color: white;
+/* BODY */
+body{
+    background: radial-gradient(circle at top,#0b1a2b,#050b14);
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* BACKGROUND */
-.bg {
-    position: fixed;
-    inset: 0;
+/* BACKGROUND FIX */
+.bg{
+    position:fixed;
+    inset:0;
     background-image: radial-gradient(#00bfff22 2px, transparent 2px);
-    background-size: 70px 70px;
-    z-index: 0;
+    background-size:70px 70px;
+    z-index:0;
+}
+
+/* WRAPPER CENTER CHUẨN */
+.wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
 }
 
 /* CONTAINER */
-.container {
-    width: 90%;
-    max-width: 360px;
-    text-align: center;
-    z-index: 1;
+.container{
+    width:100%;
+    max-width:360px;
+    margin:auto;
+    text-align:center;
+    position:relative;
+    z-index:1;
+    padding:20px;
 }
 
 /* AVATAR */
-.avatar {
-    width: 120px;
-    height: 120px;
-    margin: auto;
-    border-radius: 50%;
-    border: 3px solid var(--main);
-    box-shadow: 0 0 25px var(--main);
-    overflow: hidden;
+.avatar{
+    width:110px;
+    height:110px;
+    margin:auto;
+    border-radius:50%;
+    border:3px solid var(--main);
+    box-shadow:0 0 25px var(--main);
+    overflow:hidden;
 }
 
-.avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* TITLE */
-.title {
-    margin-top: 20px;
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--main);
-    text-shadow: 0 0 15px var(--main);
-}
-
-.subtitle {
-    margin: 10px 0 25px;
-    color: #aaa;
-}
-
-/* BOX */
-.box {
-    border: 2px solid var(--main);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 0 20px #1e90ff55;
-}
-
-/* INPUT */
-.input-box {
-    border: 2px solid var(--main);
-    border-radius: 15px;
-    padding: 12px;
-    margin-bottom: 20px;
-}
-
-.input-box input {
-    width: 100%;
-    background: none;
-    border: none;
-    outline: none;
-    color: white;
-}
-
-/* BUTTON */
-button {
-    width: 100%;
-    padding: 14px;
-    border-radius: 15px;
-    border: none;
-    background: linear-gradient(90deg, #1e90ff, #4facfe);
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 0 15px var(--main);
-}
-
-button:active {
-    transform: scale(0.96);
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 /* TEXT */
-.forgot {
-    margin-top: 15px;
-    color: var(--main);
+.title{
+    margin-top:18px;
+    font-size:28px;
+    font-weight:700;
+    color:var(--main);
+    text-shadow:0 0 15px var(--main);
 }
 
-.features {
-    margin-top: 25px;
-    text-align: left;
-    color: #aaa;
-    font-size: 14px;
+.subtitle{
+    margin:10px 0 25px;
+    color:#aaa;
 }
 
-.features div {
-    margin: 8px 0;
+/* BOX */
+.box{
+    border:2px solid var(--main);
+    border-radius:20px;
+    padding:18px;
+    box-shadow:0 0 20px #1e90ff55;
 }
 
-.footer {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #555;
+/* INPUT */
+.input-box{
+    border:2px solid var(--main);
+    border-radius:15px;
+    padding:12px;
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    background:none;
+    border:none;
+    outline:none;
+    color:white;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:14px;
+    border-radius:15px;
+    border:none;
+    background:linear-gradient(90deg,#1e90ff,#4facfe);
+    color:white;
+    font-weight:600;
+}
+
+/* TEXT */
+.forgot{
+    margin-top:15px;
+    color:var(--main);
+}
+
+.features{
+    margin-top:25px;
+    text-align:left;
+    color:#aaa;
+}
+
+.features div{
+    margin:8px 0;
+}
+
+.footer{
+    margin-top:20px;
+    font-size:12px;
+    color:#555;
 }
 </style>
 </head>
@@ -152,6 +157,8 @@ button:active {
 <body>
 
 <div class="bg"></div>
+
+<div class="wrapper">
 
 <div class="container">
 
@@ -183,25 +190,21 @@ button:active {
 
 </div>
 
+</div>
+
 <script>
 function login(){
-    const key = document.querySelector("input").value.trim();
-
+    let key=document.querySelector("input").value.trim();
     if(!key){
         alert("Nhập key!");
         return;
     }
-
-    if(key === "123456"){
-        alert("OK VIP 😎");
-    } else {
+    if(key==="123456"){
+        alert("OK 😎");
+    }else{
         alert("Sai key!");
     }
 }
-
-/* CHẶN SCROLL MỌI KIỂU */
-document.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
-document.addEventListener('wheel', e => e.preventDefault(), { passive: false });
 </script>
 
 </body>
