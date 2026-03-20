@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <title>Headlock Pro Fix</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
@@ -14,7 +14,6 @@
 html,body{
     width:100%;height:100%;overflow:hidden;
     font-family:'Poppins',sans-serif;
-    touch-action:none;
 }
 body{background:#050b14;}
 
@@ -59,33 +58,26 @@ body{background:#050b14;}
 }
 .avatar img{width:100%;height:100%;object-fit:cover;}
 
-/* TITLE */
+/* TEXT */
 .title{
-    margin-top:18px;
-    font-size:34px;
-    font-weight:900;
-    letter-spacing:2px;
-    color:#2f80ff;
-    text-shadow:0 0 25px #1e90ff;
+    margin-top:18px;font-size:28px;font-weight:700;
+    color:var(--main);text-shadow:0 0 15px var(--main);
 }
-.subtitle{
-    margin:10px 0 25px;
-    color:#aaa;
-}
+.subtitle{margin:10px 0 25px;color:#aaa;}
 
 /* BOX */
 .box{
     border:2px solid var(--main);
     border-radius:20px;
-    padding:20px;
-    box-shadow:0 0 25px #1e90ff55;
+    padding:18px;
+    box-shadow:0 0 20px #1e90ff55;
 }
 
-/* INPUT */
+/* ===== INPUT GIỮ NGUYÊN ===== */
 .input-box{
     border:2px solid var(--main);
     border-radius:15px;
-    padding:14px;
+    padding:12px;
     margin-bottom:20px;
 }
 .input-box input{
@@ -99,21 +91,22 @@ body{background:#050b14;}
 /* BUTTON */
 button{
     width:100%;
-    padding:15px;
-    border-radius:18px;
+    padding:14px;
+    border-radius:15px;
     border:none;
-    background:linear-gradient(90deg,#2f80ff,#3fa9ff);
+    background:linear-gradient(90deg,#1e90ff,#4facfe);
     color:white;
-    font-weight:700;
+    font-weight:600;
+    box-shadow:0 0 15px var(--main);
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     gap:10px;
 }
 button:active{transform:scale(0.96);}
 
 /* TEXT */
-.forgot{margin-top:15px;color:#1e90ff;}
+.forgot{margin-top:15px;color:var(--main);}
 .features{margin-top:25px;text-align:left;color:#aaa;font-size:14px;}
 .features div{margin:8px 0;}
 .footer{margin-top:20px;font-size:12px;color:#555;}
@@ -146,38 +139,18 @@ button:active{transform:scale(0.96);}
     z-index:1000;
 }
 
-.overlay.show{
-    opacity:1;
-    pointer-events:auto;
-}
-.popup.show{
-    bottom:20px;
-}
+.overlay.show{opacity:1;pointer-events:auto;}
+.popup.show{bottom:20px;}
 
-/* ICON */
 .popup .icon{
-    width:60px;
-    height:60px;
-    margin:auto;
+    width:60px;height:60px;margin:auto;
     border-radius:50%;
     background:linear-gradient(#2f80ff,#3fa9ff);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    color:#000;
+    display:flex;align-items:center;justify-content:center;
+    font-size:28px;color:#000;
 }
-
-/* TEXT */
-.popup h2{
-    margin-top:15px;
-    color:#fff;
-    font-weight:700;
-}
-.popup p{
-    color:#aaa;
-    margin-top:5px;
-}
+.popup h2{margin-top:15px;color:#fff;}
+.popup p{color:#aaa;}
 </style>
 </head>
 
@@ -195,7 +168,7 @@ button:active{transform:scale(0.96);}
 
     <div class="box">
         <div class="input-box">
-            <input type="text" placeholder="Nhập Key">
+            <input id="key" type="text" placeholder="Nhập Key">
         </div>
 
         <button onclick="login()">
@@ -219,11 +192,10 @@ button:active{transform:scale(0.96);}
 
 <!-- POPUP -->
 <div class="overlay" onclick="closePopup()"></div>
-
 <div class="popup" id="popup">
     <div class="icon" id="icon">!</div>
-    <h2 id="p-title">Thông báo</h2>
-    <p id="p-msg">...</p>
+    <h2 id="p-title"></h2>
+    <p id="p-msg"></p>
 </div>
 
 <script>
@@ -233,9 +205,7 @@ function showPopup(title,msg,ok=true){
 
     document.getElementById("p-title").innerText=title;
     document.getElementById("p-msg").innerText=msg;
-
-    let icon=document.getElementById("icon");
-    icon.innerHTML = ok ? "✔" : "!";
+    document.getElementById("icon").innerHTML = ok ? "✔" : "!";
 }
 
 function closePopup(){
@@ -244,7 +214,7 @@ function closePopup(){
 }
 
 function login(){
-    let key=document.querySelector("input").value.trim();
+    let key=document.getElementById("key").value.trim();
 
     if(!key){
         showPopup("Thiếu key","Bạn chưa nhập key.",false);
@@ -252,15 +222,11 @@ function login(){
     }
 
     if(key==="123456"){
-        showPopup("Thành công","Đăng nhập OK 😎",true);
+        showPopup("Thành công","OK 😎",true);
     }else{
         showPopup("Sai key","Key không đúng!",false);
     }
 }
-
-/* CHẶN SCROLL */
-document.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
-document.addEventListener('wheel',e=>e.preventDefault(),{passive:false});
 </script>
 
 </body>
